@@ -1,0 +1,62 @@
+ONCE UPON A TIME THERE WAS A KING
+
+ONCE (ADVERB)=>
+		ONCE MARKED AS TIME (BY NER)
+		
+	>>> wn.synsets('once',pos=wn.ADV)
+		[Synset('once.r.01'),
+		 Synset('once.r.02'),
+		 Synset('once.r.03')]
+
+	>>> print(wn.synset('once.r.01').definition())
+		ON ONCE OCCASSION
+		AS SOON AS
+		AT A PREVIOUS TIME
+
+
+	>>> wn.synset('once.r.03').hypernyms()
+		[]
+
+	>>> wn.synset('once.r.03').member_holonyms()
+
+		[]
+
+
+	>>> wn.synset('once.r.01').root_hypernyms()
+
+		once.r.01
+
+	>>> wn.synset('once.r.01').lemmas()   
+		[Lemma('once.r.01.once'), Lemma('once.r.01.one_time'), Lemma('once.r.01.in_one_case')]
+
+
+
+wn.synsets('dog')[0].lowest_common_hypernyms(wn.synsets('cat')[0])
+
+
+
+
+>>> dog = wn.synset('dog.n.01')
+>>> hypo = lambda s: s.hyponyms()
+>>> hyper = lambda s: s.hypernyms()
+>>> list(dog.closure(hypo, depth=1)) == dog.hyponyms()
+True
+>>> list(dog.closure(hyper, depth=1)) == dog.hypernyms()
+True
+>>> list(dog.closure(hypo))
+[Synset('basenji.n.01'), Synset('corgi.n.01'), Synset('cur.n.01'),
+ Synset('dalmatian.n.02'), Synset('great_pyrenees.n.01'),
+ Synset('griffon.n.02'), Synset('hunting_dog.n.01'), Synset('lapdog.n.01'),
+ Synset('leonberg.n.01'), Synset('mexican_hairless.n.01'),
+ Synset('newfoundland.n.01'), Synset('pooch.n.01'), Synset('poodle.n.01'), ...]
+>>> list(dog.closure(hyper))
+[Synset('canine.n.02'), Synset('domestic_animal.n.01'), Synset('carnivore.n.01'),
+Synset('animal.n.01'), Synset('placental.n.01'), Synset('organism.n.01'),
+Synset('mammal.n.01'), Synset('living_thing.n.01'), Synset('vertebrate.n.01'),
+Synset('whole.n.02'), Synset('chordate.n.01'), Synset('object.n.01'),
+Synset('physical_entity.n.01'), Synset('entity.n.01')]
+
+
+
+
+

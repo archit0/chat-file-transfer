@@ -54,7 +54,7 @@ class ClientHandler extends Thread {
             }
             out.flush();
             sendMessage("Ping");
-            sendMessage("Ping");
+
         }
         catch (Exception e){
             System.out.println("CLIENT UPLOADING ERROR");

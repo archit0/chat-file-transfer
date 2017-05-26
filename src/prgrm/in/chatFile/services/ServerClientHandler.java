@@ -105,6 +105,9 @@ class ServerClientHandler extends Thread {
 
 
                     serverThread.sendFile(rec,fn);
+                    serverThread.sendMessage(rec, "IGNORE@" + clientId + ":" + message);
+
+
                     flag=false;
                 }
                 else {
