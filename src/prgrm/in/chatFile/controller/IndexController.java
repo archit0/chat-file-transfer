@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
  */
 public class IndexController implements Initializable {
     @FXML
-    TextField PORT;
+    TextField PORT,HOST;
     @FXML
     TextArea LOGGER;
 
@@ -44,7 +44,7 @@ public class IndexController implements Initializable {
     public void START_CLIENT(){
         try {
             Starter.PORT= Integer.parseInt(PORT.getText());
-
+            Starter.HOST=HOST.getText();
             Stage dialog = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/prgrm/in/chatFile/ui/client.fxml"));
             Parent root = (Parent)fxmlLoader.load();

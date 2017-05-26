@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
  */
 public class Starter extends Application {
     public static int PORT;
+    public static String HOST;
 
     @Override
     public void start(Stage primaryStage) throws Exception {

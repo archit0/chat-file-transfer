@@ -28,6 +28,7 @@ import java.util.concurrent.RunnableFuture;
  * Created by archit on 20/5/17.
  */
 public class ClientController implements Initializable {
+    String HOST ;
     @FXML
     ListView<String> CONNECTIONS,FILESD;
     @FXML
@@ -45,16 +46,17 @@ public class ClientController implements Initializable {
 
     ClientThread cthread;
 
-    public void setPORT(int PORT) {
+    public void setPORT(int PORT,String host) {
         this.PORT = PORT;
+        this.HOST=host;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            setPORT(Starter.PORT);
+            setPORT(Starter.PORT,Starter.HOST);
 
-            cthread = new ClientThread(this.PORT, this);
+            cthread = new ClientThread(this.PORT,this.HOST, this);
             cthread.start();
 
             map = new HashMap<String, List<String>>();

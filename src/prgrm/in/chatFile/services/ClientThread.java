@@ -8,14 +8,16 @@ import java.net.Socket;
  * Created by archit on 20/5/17.
  */
 public class ClientThread extends Thread {
+    private String host;
     private int port;
     private  ClientController clientController;
     public ClientHandler clientHandler;
     Socket socket;
 
-    public ClientThread(int port, ClientController clientController){
+    public ClientThread(int port, String host,ClientController clientController){
         try {
             this.port=port;
+            this.host=host;
             this.clientController = clientController;
         }
         catch (Exception e){
@@ -25,7 +27,7 @@ public class ClientThread extends Thread {
     @Override
     public void run(){
         try {
-            socket = new Socket("localhost", port);
+            socket = new Socket(this.host, port);
             clientHandler =new ClientHandler(socket,this,clientController);
             clientHandler.start();
         }
