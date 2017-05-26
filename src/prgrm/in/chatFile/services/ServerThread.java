@@ -94,6 +94,9 @@ public class ServerThread extends Thread{
     public void sendMessage(String clientId,String message){
         map.get(clientId).sendMessage(message);
     }
+    public void sendFile(String clientId,String fn){
+        map.get(clientId).sendFile(fn);
+    }
 }
 
 

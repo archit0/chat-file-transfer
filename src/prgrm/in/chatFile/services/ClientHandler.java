@@ -42,23 +42,25 @@ class ClientHandler extends Thread {
     }
     public void sendFile(String filePath){
         try {
-            System.out.println("UPLOADING STARTED");
+            System.out.println("CLIENT UPLOADING STARTED");
             File transferFile = new File(filePath);
             FileInputStream fin = new FileInputStream(transferFile);
             BufferedInputStream bin = new BufferedInputStream(fin);
             int count;
             byte[] buffer = new byte[8192];
             while ((count = bin.read(buffer)) > 0) {
-                System.out.println("UPLOADING IN PROGRESS");
+                System.out.println("CLIENT UPLOADING IN PROGRESS");
                 out.write(buffer, 0, count);
             }
             out.flush();
+            sendMessage("Ping");
+            sendMessage("Ping");
         }
         catch (Exception e){
-            System.out.println("UPLOADING ERROR");
+            System.out.println("CLIENT UPLOADING ERROR");
             e.printStackTrace();
         }
-        System.out.println("UPLOADING FINISH");
+        System.out.println("CLIENT UPLOADING FINISH");
     }
     @Override
     public void run(){
@@ -72,22 +74,22 @@ class ClientHandler extends Thread {
         while(true){
             try{
                 if(flag){
-                    System.out.println("DOWNLOADING STARTED of "+fn);
+                    System.out.println("CLIENT DOWNLOADING STARTED of "+fn);
                     try {
                         FileOutputStream fileWrite = new FileOutputStream("client/"+fn);
                         byte[] bytes = new byte[16*1024];
                         int count;
                         while ((count = in.read(bytes)) > 0) {
-                            System.out.println("DOWNLOADING IN PROGRESS");
+                            System.out.println("CLIENT DOWNLOADING IN PROGRESS");
                             fileWrite.write(bytes, 0, count);
                         }
                         fileWrite.close();
                     }
                     catch (Exception e){
-                        System.out.println("DOWNLOADING ERROR");
+                        System.out.println("CLIENT DOWNLOADING ERROR");
                         e.printStackTrace();
                     }
-                    System.out.println("DOWNLOADING FINISH");
+                    System.out.println("CLIENT DOWNLOADING FINISH");
                     flag=false;
                 }else {
                     String messageFromServer = ((String) in.readObject());

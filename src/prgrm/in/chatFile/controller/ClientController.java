@@ -87,7 +87,7 @@ public class ClientController implements Initializable {
     }
     public void OPENFILE(){
         try {
-            Desktop.getDesktop().open(new File(FILESD.getSelectionModel().getSelectedItem()));
+            Desktop.getDesktop().open(new File("client/"+FILESD.getSelectionModel().getSelectedItem()));
         }
         catch (Exception e){
             e.printStackTrace();
