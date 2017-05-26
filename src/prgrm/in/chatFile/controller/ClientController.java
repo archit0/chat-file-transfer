@@ -87,7 +87,6 @@ public class ClientController implements Initializable {
     }
     public void OPENFILE(){
         try {
-
             Desktop.getDesktop().open(new File(FILESD.getSelectionModel().getSelectedItem()));
         }
         catch (Exception e){
@@ -146,8 +145,9 @@ public class ClientController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         File f = fileChooser.showOpenDialog(MESSAGE.getScene().getWindow());
-        String message = "FILE@" + id + ":" + f.getName() + "@" + MyUtils.readSmallBinaryFile(f.getPath());
+        String message = "FILE@" + id + ":" + f.getName()+"@"+f.getTotalSpace();
         cthread.sendMessage(message);
+        cthread.sendFile(f.getPath());
         fileUpdate();
     }
 

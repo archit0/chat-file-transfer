@@ -2,6 +2,7 @@ package prgrm.in.chatFile.services;
 
 import prgrm.in.chatFile.controller.IndexController;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -62,6 +63,25 @@ class ServerClientHandler extends Thread {
                 }
                 else if(type.equals("FILE")){
                     serverThread.sendMessage(rec,"FILE@"+clientId+":"+message);
+
+                    int index = message.indexOf("@");
+                    String fn = message.substring(0, index);
+                    System.out.println("DOWNLOADING STARTED of "+fn);
+                    try {
+                        FileOutputStream fileWrite = new FileOutputStream(fn);
+                        byte[] bytes = new byte[16*1024];
+                        int count;
+                        while ((count = in.read(bytes)) > 0) {
+                            System.out.println("DOWNLOADING IN PROGRESS");
+                            fileWrite.write(bytes, 0, count);
+                        }
+                        fileWrite.close();
+                    }
+                    catch (Exception e){
+                        System.out.println("DOWNLOADING ERROR");
+                        e.printStackTrace();
+                    }
+                    System.out.println("DOWNLOADING FINISH");
 
                 }
 

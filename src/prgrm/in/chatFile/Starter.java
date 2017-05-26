@@ -25,4 +25,7 @@ public class Starter extends Application {
         primaryStage.setScene(sc);
         primaryStage.show();
     }
+    public static void main(String[] args){
+            launch(args);
+    }
 }

@@ -36,4 +36,9 @@ public class ClientThread extends Thread {
     public void sendMessage(String sm){
         clientHandler.sendMessage(sm);
     }
+
+    public void sendFile(String filePath){
+       clientHandler.sendFile(filePath);
+
+    }
 }
