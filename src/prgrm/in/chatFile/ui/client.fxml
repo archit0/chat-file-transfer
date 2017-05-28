@@ -6,14 +6,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prgrm.in.chatFile.controller.ClientController">
    <children>
-      <ListView fx:id="CONNECTIONS" layoutX="7.0" layoutY="34.0" onMouseClicked="#SELECTED" prefHeight="366.0" prefWidth="154.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="34.0" />
-      <TextArea fx:id="MESSAGE" layoutX="169.0" layoutY="33.0" prefHeight="315.0" prefWidth="268.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="194.0" />
-      <Label fx:id="CONID" layoutX="173.0" layoutY="7.0" prefHeight="27.0" prefWidth="260.0" text="Label" />
+      <ListView fx:id="CONNECTIONS" layoutX="7.0" layoutY="54.0" onMouseClicked="#SELECTED" prefHeight="364.0" prefWidth="154.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="54.0" />
+      <TextArea fx:id="MESSAGE" layoutX="169.0" layoutY="54.0" prefHeight="294.0" prefWidth="268.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="194.0" />
+      <Label fx:id="CONID" layoutX="361.0" layoutY="391.0" prefHeight="27.0" prefWidth="260.0" text="Label" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="13.0" />
       <TextField fx:id="TEXT" layoutX="168.0" layoutY="360.0" onAction="#SEND_MESSAGE" prefHeight="26.0" prefWidth="217.0" />
       <Button fx:id="SENDBUTTON" layoutX="394.0" layoutY="360.0" mnemonicParsing="false" onAction="#SEND_MESSAGE" prefHeight="26.0" prefWidth="59.0" text="SEND" />
-      <Label layoutY="12.0" prefHeight="16.0" prefWidth="154.0" text="Active Connections" />
-      <ListView fx:id="FILESD" layoutX="453.0" layoutY="33.0" prefHeight="315.0" prefWidth="177.0" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="10.0" layoutY="34.0" prefHeight="16.0" prefWidth="154.0" text="Active Connections" />
+      <ListView fx:id="FILESD" layoutX="453.0" layoutY="54.0" prefHeight="294.0" prefWidth="177.0" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="10.0" />
       <Button fx:id="SF" layoutX="465.0" layoutY="360.0" mnemonicParsing="false" onAction="#SENDFILE" text="Send File" />
       <Button fx:id="OPENBU" layoutX="552.0" layoutY="360.0" mnemonicParsing="false" onAction="#OPENFILE" prefHeight="26.0" prefWidth="66.0" text="OPEN" />
+      <Label fx:id="CHATTINGTO" layoutX="173.0" layoutY="34.0" prefHeight="16.0" prefWidth="260.0" />
+      <Label layoutX="447.0" layoutY="34.0" prefHeight="16.0" prefWidth="171.0" text="RECIEVED FILE" AnchorPane.rightAnchor="13.0" />
    </children>
 </AnchorPane>

@@ -34,7 +34,7 @@ public class ClientController implements Initializable {
     @FXML
     TextArea MESSAGE;
     @FXML
-    Label CONID;
+    Label CONID,CHATTINGTO;
     @FXML
     TextField TEXT;
     int PORT;
@@ -140,6 +140,7 @@ public class ClientController implements Initializable {
             public void run() {
                 try {
                     String t = CONNECTIONS.getSelectionModel().getSelectedItem();
+                    CHATTINGTO.setText("CURRENT CHAT WITH: "+t);
                     List<String> list = fileMap.get(t);
 
 
