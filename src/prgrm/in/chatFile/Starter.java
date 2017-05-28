@@ -26,7 +26,9 @@ public class Starter extends Application {
         primaryStage.setTitle("Chat Server");
         Scene sc = new Scene(root);
         sc.setFill(null);
+
         primaryStage.setScene(sc);
+
         primaryStage.show();
     }
     public static void main(String[] args){
