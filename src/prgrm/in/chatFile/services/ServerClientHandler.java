@@ -115,22 +115,24 @@ class ServerClientHandler extends Thread {
                     indexController.addMessageToLog("Message from " + clientId + ": " + messageFromClient);
 
                     int spaceIndex = messageFromClient.indexOf(":");
+                    if(spaceIndex!=-1){
+                        String sp[] = messageFromClient.substring(0, spaceIndex).split("@");
 
-                    String sp[] = messageFromClient.substring(0, spaceIndex).split("@");
+                        String type = sp[0];
+                        rec = sp[1];
+                        message = messageFromClient.substring(spaceIndex + 1);
 
-                    String type = sp[0];
-                    rec = sp[1];
-                    message = messageFromClient.substring(spaceIndex + 1);
+                        if (type.equals("TEXT")) {
+                            serverThread.sendMessage(rec, "TEXT@" + clientId + ":" + message);
+                        } else if (type.equals("FILE")) {
+                            flag = true;
+                            int index = message.indexOf("@");
+                            fn = message.substring(0, index);
+                            fs=Long.parseLong(message.substring(index+1));
 
-                    if (type.equals("TEXT")) {
-                        serverThread.sendMessage(rec, "TEXT@" + clientId + ":" + message);
-                    } else if (type.equals("FILE")) {
-                        flag = true;
-                        int index = message.indexOf("@");
-                        fn = message.substring(0, index);
-                        fs=Long.parseLong(message.substring(index+1));
-
+                        }
                     }
+
                 }
 
 

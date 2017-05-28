@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prgrm.in.chatFile.controller.IndexController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prgrm.in.chatFile.controller.IndexController">
    <children>
+      <TextField fx:id="HOST" layoutX="14.0" layoutY="46.0" prefHeight="26.0" prefWidth="186.0" promptText="ENTER HOST IP..." />
       <TextField fx:id="PORT" layoutX="213.0" layoutY="46.0" prefHeight="26.0" prefWidth="186.0" promptText="Enter Port no." />
       <Button fx:id="SERVER" layoutX="43.0" layoutY="87.0" mnemonicParsing="false" onAction="#START_SERVER" text="Start Server" />
       <Button fx:id="CLIENT" layoutX="251.0" layoutY="87.0" mnemonicParsing="false" onAction="#START_CLIENT" text="Start Client" />
-      <TextArea fx:id="LOGGER" editable="false" layoutX="11.0" layoutY="126.0" prefHeight="155.0" prefWidth="404.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="17.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="14.0" prefHeight="16.0" prefWidth="109.0" text="Chat Server" />
-      <TextField fx:id="HOST" layoutX="14.0" layoutY="46.0" promptText="ENTER HOST IP..." />
+      <TextArea fx:id="LOGGER" editable="false" layoutX="11.0" layoutY="144.0" prefHeight="149.0" prefWidth="421.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="17.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="14.0" prefHeight="21.0" prefWidth="186.0" text="Chat and File Server">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="122.0" prefHeight="16.0" prefWidth="97.0" text="SERVER LOGS:" />
+      <Hyperlink fx:id="AB" layoutX="376.0" layoutY="302.0" onAction="#ABOUT" text="ABOUT" AnchorPane.rightAnchor="20.0" />
    </children>
 </AnchorPane>

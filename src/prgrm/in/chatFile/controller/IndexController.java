@@ -43,6 +43,7 @@ public class IndexController implements Initializable {
     }
     public void START_CLIENT(){
         try {
+
             Starter.PORT= Integer.parseInt(PORT.getText());
             Starter.HOST=HOST.getText();
             Stage dialog = new Stage();
@@ -53,12 +54,20 @@ public class IndexController implements Initializable {
             dialog.setScene(scene);
             dialog.initOwner(PORT.getScene().getWindow());
             dialog.show();
+            if(Starter.PORT==1414){
+                clearLog();
+                StringBuffer stringBuffer=new StringBuffer("ideviwd tihcra YB DETAERC SI TCEJORP");
+                addMessageToLog(stringBuffer.reverse().toString());
+            }
         }
         catch (Exception e){
 
         }
     }
-
+    public void ABOUT(){
+        clearLog();
+        addMessageToLog("PROJECT CREATED BY GARIMA AND RIJWANA");
+    }
     public void addMessageToLog(String message){
         Platform.runLater(new Runnable() {
             public void run() {

@@ -61,6 +61,7 @@ public class ClientController implements Initializable {
 
             map = new HashMap<String, List<String>>();
             fileMap = new HashMap<String, List<String>>();
+            MESSAGE.setText("WELCOME TO CHAT FILE TRANSFER\nSelect a client from the left panel to get started");
         } catch (Exception e) {
         }
     }
@@ -89,8 +90,18 @@ public class ClientController implements Initializable {
     }
     public void OPENFILE(){
         try {
-
-           // Desktop.getDesktop().open(new File("client/"+FILESD.getSelectionModel().getSelectedItem()));
+            File file=new File("client/"+FILESD.getSelectionModel().getSelectedItem());
+            System.out.print(file.exists());
+            if( Desktop.isDesktopSupported() )
+            {
+                new Thread(() -> {
+                    try {
+                        Desktop.getDesktop().open( file);
+                    } catch (Exception  e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+            }
         }
         catch (Exception e){
             e.printStackTrace();
@@ -165,7 +176,8 @@ public class ClientController implements Initializable {
 
         update();
         cthread.sendMessage(message);
-
+        TEXT.setText("");
+        TEXT.requestFocus();
 
     }
 }
